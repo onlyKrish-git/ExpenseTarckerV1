@@ -1,0 +1,270 @@
+:root {
+    /* Light Theme Variables */
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --border-color: #dee2e6;
+    --accent-color: #4CAF50;
+    --hover-color: #45a049;
+    --card-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --chart-colors: #4CAF50, #2196F3, #FFC107, #FF5722, #9C27B0, #795548;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+    --bg-primary: #212529;
+    --bg-secondary: #343a40;
+    --text-primary: #f8f9fa;
+    --text-secondary: #adb5bd;
+    --border-color: #495057;
+    --accent-color: #66bb6a;
+    --hover-color: #81c784;
+    --card-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* General Styles */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.stat-card {
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.stat-card h3 {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-color);
+    border-color: var(--hover-color);
+}
+
+.quick-add-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.quick-add-buttons .btn {
+    margin: 5px;
+}
+
+/* Form Styles */
+.form-control, .form-select {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: var(--bg-secondary);
+    border-color: var(--accent-color);
+    color: var(--text-primary);
+    box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+}
+
+/* Expense List Styles */
+.expense-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: var(--bg-primary);
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.expense-item:hover {
+    background-color: var(--border-color);
+}
+
+.expense-item .delete-btn {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.expense-item:hover .delete-btn {
+    opacity: 1;
+}
+
+/* Chart Styles */
+#expenseChart, #categoryChart {
+    margin: 20px 0;
+    max-height: 300px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Header Styles */
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+
+    /* Card Styles */
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .stat-card {
+        margin-bottom: 15px;
+    }
+
+    .stat-card h5 {
+        font-size: 0.9rem;
+    }
+
+    .stat-card h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Form Styles */
+    .form-control, .form-select, .btn {
+        font-size: 0.9rem;
+        padding: 0.375rem 0.75rem;
+        height: auto;
+    }
+
+    /* Quick Add Section */
+    .quick-add-buttons {
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .quick-add-buttons .btn {
+        padding: 0.375rem 0.5rem;
+        font-size: 0.8rem;
+        margin: 2px;
+    }
+
+    /* Expense List */
+    .expense-list {
+        max-height: 300px;
+    }
+
+    .expense-item {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .expense-item .delete-btn {
+        opacity: 1;
+        padding: 4px 8px;
+    }
+
+    /* Charts */
+    #expenseChart, #categoryChart {
+        max-height: 250px;
+        margin: 10px 0;
+    }
+
+    /* Currency Selector */
+    #currencySelector {
+        min-width: 80px;
+        font-size: 0.9rem;
+    }
+
+    /* Theme Toggle */
+    #themeToggle {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Additional Mobile Optimizations */
+@media (max-width: 480px) {
+    .container-fluid {
+        padding: 0.5rem;
+    }
+
+    .card-body {
+        padding: 0.75rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+
+    .stat-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .quick-add-buttons .btn {
+        flex: 1 1 calc(50% - 10px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #expenseForm {
+        row-gap: 0.5rem !important;
+    }
+}
+
+
+/* Theme Toggle Button */
+#themeToggle {
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+/* Currency Selector */
+#currencySelector {
+    min-width: 100px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hover-color);
